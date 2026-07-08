@@ -1,0 +1,499 @@
+/* ===== صفحة الفرع ===== */
+.branch-page {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+/* ===== الشريط الجانبي (الخريطة) ===== */
+.branch-sidebar {
+    width: 260px;
+    background: #111827;
+    border-left: 1px solid #1f2937;
+    padding: 20px 16px;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.branch-sidebar h3 {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.sidebar-map {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.sidebar-map .country {
+    fill: #1f2937;
+    stroke: #374151;
+    stroke-width: 1;
+    transition: fill 0.3s;
+}
+
+.sidebar-map .country.active {
+    fill: #1e3a5f;
+    stroke: #60a5fa;
+}
+
+.sidebar-map .country:hover {
+    fill: #2d4a7a;
+    cursor: pointer;
+}
+
+.sidebar-map .branch-marker {
+    fill: #60a5fa;
+    stroke: #fff;
+    stroke-width: 1.5;
+    cursor: pointer;
+}
+
+.sidebar-branches {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar-branch-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: #d1d5db;
+    font-size: 13px;
+}
+
+.sidebar-branch-item:hover {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+.sidebar-branch-item.active {
+    background: #1e3a5f;
+    border-color: #60a5fa;
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.sidebar-branch-item .flag {
+    font-size: 20px;
+}
+
+.sidebar-branch-item .badge {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    background: #374151;
+    color: #9ca3af;
+    margin-right: auto;
+}
+
+.sidebar-branch-item .badge.main {
+    background: #1e3a5f;
+    color: #60a5fa;
+}
+
+/* ===== المحتوى الرئيسي للفرع ===== */
+.branch-content {
+    flex: 1;
+    padding: 28px 32px;
+    overflow-y: auto;
+}
+
+.branch-header {
+    margin-bottom: 32px;
+}
+
+.branch-header .branch-title {
+    font-size: 24px;
+    color: #f0f0f0;
+    margin-bottom: 4px;
+}
+
+.branch-header .branch-title .flag {
+    margin-left: 8px;
+}
+
+.branch-header .branch-subtitle {
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.branch-header .branch-info {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+/* ===== الطوابق ===== */
+.floors-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.floor-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.floor-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #1a2332;
+    border-bottom: 1px solid #1f2937;
+    cursor: pointer;
+    user-select: none;
+}
+
+.floor-header .floor-icon {
+    font-size: 20px;
+}
+
+.floor-header .floor-level {
+    font-size: 12px;
+    color: #60a5fa;
+    background: #1e3a5f;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.floor-header .floor-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.floor-header .floor-toggle {
+    margin-right: auto;
+    color: #6b7280;
+    font-size: 14px;
+    transition: transform 0.2s;
+}
+
+.floor-header .floor-toggle.open {
+    transform: rotate(180deg);
+}
+
+/* ===== الغرف ===== */
+.floor-body {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.room-card {
+    background: #0f172a;
+    border: 1px solid #1f2937;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.room-card .room-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1f2937;
+}
+
+.room-card .room-id {
+    font-size: 11px;
+    color: #60a5fa;
+    background: #1e3a5f;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.room-card .room-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.room-card .room-dept {
+    font-size: 11px;
+    color: #9ca3af;
+    background: #374151;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+/* ===== الموظفين ===== */
+.employees-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.employee-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    background: #111827;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.employee-item:hover {
+    background: #1a2332;
+}
+
+.employee-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.employee-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.employee-info .emp-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.employee-info .emp-rank {
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.employee-detail-btn {
+    font-size: 18px;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.employee-detail-btn:hover {
+    color: #60a5fa;
+}
+
+/* ===== نافذة الموظف التفصيلية (Modal) ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal-box {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+    animation: modalIn 0.2s ease;
+}
+
+@keyframes modalIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px; left: 16px;
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #f0f0f0;
+}
+
+.modal-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 auto 16px;
+}
+
+.modal-name {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 4px;
+}
+
+.modal-rank {
+    text-align: center;
+    font-size: 14px;
+    color: #60a5fa;
+    margin-bottom: 20px;
+}
+
+.modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-detail-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #d1d5db;
+    padding: 8px 12px;
+    background: #0f172a;
+    border-radius: 8px;
+}
+
+.modal-detail-row .detail-icon {
+    font-size: 16px;
+    width: 24px;
+    text-align: center;
+}
+
+.modal-detail-row .detail-label {
+    color: #6b7280;
+    min-width: 50px;
+}
+
+.modal-detail-row .detail-value {
+    color: #e0e0e0;
+}
+
+/* ===== بطاقة البروتوكولات ===== */
+.protocols-section {
+    margin-top: 32px;
+}
+
+.protocols-section h3 {
+    font-size: 16px;
+    color: #f0f0f0;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.protocols-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.protocol-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 10px;
+    padding: 16px;
+    transition: border-color 0.2s;
+}
+
+.protocol-card:hover {
+    border-color: #60a5fa;
+}
+
+.protocol-card .protocol-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #60a5fa;
+    margin-bottom: 4px;
+}
+
+.protocol-card .protocol-port {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-bottom: 6px;
+}
+
+.protocol-card .protocol-usage {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+.protocol-card .protocol-type {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+.protocol-card .protocol-type.encryption {
+    background: #1e3a5f;
+    color: #60a5fa;
+}
+
+.protocol-card .protocol-type.remote {
+    background: #1f3a1f;
+    color: #4ade80;
+}
+
+.protocol-card .protocol-type.security {
+    background: #3a1f1f;
+    color: #f87171;
+}
+
+.protocol-card .protocol-type.monitoring {
+    background: #3a2f1f;
+    color: #fbbf24;
+}
+
+.protocol-card .protocol-type.tunnel {
+    background: #2f1f3a;
+    color: #c084fc;
+}
+
+.protocol-card .protocol-type.web {
+    background: #1f2f3a;
+    color: #38bdf8;
+}

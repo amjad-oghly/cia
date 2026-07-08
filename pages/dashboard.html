@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اللوحة الرئيسية - CIA</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="logo">CIA <span class="logo-sub">| شبكة الفروع العالمية</span></span>
+        <div class="user-info">
+            <span id="welcomeUser">مرحباً</span>
+            <button onclick="logout()">تسجيل الخروج</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="org-header">
+            <div class="org-logo">CIA</div>
+            <h1>وكالة الاستخبارات المركزية</h1>
+            <p class="subtitle" id="orgDesc"></p>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-number" id="statBranches">4</div>
+                <div class="stat-label">الفروع</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="statEmployees">0</div>
+                <div class="stat-label">الموظفين</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="statProtocols">0</div>
+                <div class="stat-label">بروتوكول أمني</div>
+            </div>
+        </div>
+
+        <h2 class="branches-title">الفروع</h2>
+        <div class="branches-grid" id="branchesGrid"></div>
+
+        <div class="world-map-container">
+            <h3>خريطة الفروع العالمية</h3>
+            <div class="svg-map-wrapper" id="worldMapWrapper">
+                <svg class="svg-world-map" id="worldMap" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"></svg>
+                <div class="map-tooltip" id="mapTooltip"></div>
+                <div class="map-legend" id="mapLegend"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
