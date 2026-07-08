@@ -146,3 +146,47 @@ body {
     background: #374151;
     border-radius: 3px;
 }
+
+/* ===== استجابة للشاشات الصغيرة ===== */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .navbar .logo {
+        font-size: 16px;
+    }
+
+    .navbar .logo-sub {
+        display: none;
+    }
+
+    .user-info span {
+        font-size: 12px;
+    }
+
+    .user-info button {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .btn-back {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .user-info {
+        justify-content: center;
+    }
+}
